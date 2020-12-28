@@ -8,7 +8,10 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 
 app.get("/home",(req,res)=>{
-    res.render("home")
+    res.redirect("/");
+});
+app.get("/",(req,res)=>{
+    res.render("home");
 });
 
 app.listen(process.env.PORT || 5000, ()=>{
