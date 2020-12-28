@@ -6,28 +6,69 @@
             <li><a href="#"></i>Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">Team</a></li>
-            <li><a href="#">Contacts</a></li>
+            <li><a href="#">LOGIN</a></li>
+            <div class="ui divided"></div>
+            <li><a href="#">SIGN UP</a></li>
         </ul>
     </header>
     <section class="banner">
-        <div class="ui raised segment urlsearch">
-            <div class="">
+        <div class="backcover"></div>
+        <div id="urlsearch" class="ui raised segment">
+            <div class="box ui">
                 <div class="ui action massive labeled input">
                     <div class="ui label">
                         http://
                       </div>
                     <input class="urltextbox" type="text" placeholder="Paste URL...">
-                    <button class="ui green button">Get URL</button>
+                    <button id="urlbutton" class="ui button" onclick="adddata()" >Get URL</button>
                 </div>
             </div>
         </div>      
     </section>
+
+    <section>
+        <div class="ui vertical stripe segment">
+            <div class="ui middle aligned stackable grid container">
+            <div class="row">
+                <div class="eight wide column">
+                    <div class="ui segment" style="padding: 2em;box-shadow: -10px 10px 20px 20px #eee;border: none;">
+                        <h3 class="ui header">Easy short URLs</h3>
+                        <p>Get your long URLs converted to easy to remember short URLs</p>
+                    </div>
+                </div>
+                <div class="six wide right floated column">
+                    <img src="/img/link_shortener.svg">
+                </div>
+            </div>
+            <div class="row">
+                
+                
+                <div class="six wide right floated column">
+                    <img src="/img/analytics.svg">
+                </div>
+                <div class="eight wide column">
+                    <div class="ui segment" style="padding: 2em;box-shadow: -10px 10px 20px 20px #eee;border: none;">
+                        <h3 class="ui header">Analysis of the traffic</h3>
+                        <p>Realtime statistics showing the access to your website using easy URLs</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <%- include("./partials/footer.ejs") %>
     <script type="text/javascript">
         window.addEventListener("scroll",function(){
             var header = document.querySelector("header");
             header.classList.toggle("sticky",window.scrollY > 0);
         });
+        function adddata(){
+            console.log("shubham");
+            //document.querySelector("#urlsearch").appendChild(new Node("<p>jjj</p>"));
+            var node = document.createElement("LI");                 // Create a <li> node
+            var textnode = document.createTextNode("Water");         // Create a text node
+            node.appendChild(textnode);                              // Append the text to <li>
+            document.querySelector(".data").appendChild(node); 
+        }
     </script>
 </body>
 </html>
