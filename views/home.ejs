@@ -6,13 +6,15 @@
             <li><a href="#"></i>Home</a></li>
             <li><a href="#">About</a></li>
             <li><a href="#">Products</a></li>
-            <li><a href="#">LOGIN</a></li>
+            <li onclick="openlogin()"><a href="#">LOGIN</a></li>
             <div class="ui divided"></div>
-            <li><a href="#">SIGN UP</a></li>
+            <li onclick="opensignup()"><a href="#">SIGN UP</a></li>
         </ul>
     </header>
     <section class="banner">
-        <div class="backcover"></div>
+        <div class="backcover" style="display:flex;margin: 0 auto;justify-content: center;align-items: center;">
+            <lottie-player src="https://assets5.lottiefiles.com/private_files/lf30_fhynbgue.json"  background="transparent"  speed="1"  style="width: 600px; height: 600px;"  loop  autoplay></lottie-player>
+        </div>
         <div id="urlsearch" class="ui raised segment">
             <div class="box ui">
                 <div class="ui action massive labeled input">
@@ -55,7 +57,113 @@
             </div>
         </div>
     </section>
+
+    <div class="ui modal loginform" style="width: 50%;">
+        <i class="close icon"></i>
+        <div class="header" style="text-align: center;">
+          Login
+        </div>
+        <div class="image content">
+          <div class="ui">
+            <lottie-player src="https://assets6.lottiefiles.com/packages/lf20_jcikwtux.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" hover loop  autoplay></lottie-player>
+          </div>
+          <div class="description">
+            <div class="ui labeled input" style="width: 70%;padding: 20px 0;">
+                <div class="ui label">
+                 <i class="icon user"></i>
+                </div>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="ui labeled input" style="width: 70%;padding: 20px 0;">
+                <div class="ui label">
+                    <i class="icon lock"></i>
+                </div>
+                <input type="text" placeholder="Password">
+            </div>
+            <a class="ui button" href="/auth/google" style="display:flex;margin-top:20px;width: 70%;padding-top:10px;padding-bottom: 10px;background-color: #fff;box-shadow: 5px 5px 90px 30px #ddd;">
+                <i><img width="20px" style="margin-right: 20px;" alt="Google sign-in" 
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
+                </i>
+                <p>Login with Google</p>
+            </a>
+        
+            <a class="ui facebook button" href="/auth/facebook" style="display:flex;margin-top:20px;width: 70%;padding-top:10px;padding-bottom: 10px;box-shadow: 5px 5px 90px 30px #ddd;">
+                <i class="facebook f icon"></i>
+                <p style="color: white;">Login with Facebook</p>
+            </a>
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Cancel
+          </div>
+          <div class="ui positive right labeled icon button">
+            Login
+            <i class="checkmark icon"></i>
+          </div>
+          <div onclick="opensignup()" class="ui primary left floated icon button">
+            Sign Up
+            <i class="arrow right icon"></i>
+          </div>
+        </div>
+    </div>
+    <div class="ui modal signupform" style="width: 50%;">
+        <i class="close icon"></i>
+        <div class="header" style="text-align: center;">
+          Sign Up
+        </div>
+        <div class="image content">
+          <div class="ui">
+            <lottie-player src="https://assets3.lottiefiles.com/packages/lf20_ymbzgxgc.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;" hover controls loop  autoplay></lottie-player>
+          </div>
+          <div class="description" style="display: flex;flex-direction: column;">
+            <div class="ui labeled input" style="width: 90%;padding: 20px 0;">
+                <div class="ui label">
+                 <i class="icon user"></i>
+                </div>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="ui labeled input" style="width: 90%;padding: 20px 0;">
+                <div class="ui label">
+                 <i class="icon user"></i>
+                </div>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="ui labeled input" style="width: 90%;padding: 20px 0;">
+                <div class="ui label">
+                 <i class="icon user"></i>
+                </div>
+                <input type="text" placeholder="Username">
+            </div>
+            <div class="ui labeled input" style="width: 90%;padding: 20px 0;">
+                <div class="ui label">
+                 <i class="icon user"></i>
+                </div>
+                <input type="text" placeholder="Username">
+            </div>
+            
+          </div>
+        </div>
+        <div class="actions">
+          <div class="ui black deny button">
+            Cancel
+          </div>
+          <div class="ui positive right labeled icon button">
+            Let's Go
+            <i class="checkmark icon"></i>
+          </div>
+          <div onclick="openlogin()" class="ui primary left floated icon button">
+            Login
+            <i class="arrow right icon"></i>
+          </div>
+        </div>
+    </div>
+      
     <%- include("./partials/footer.ejs") %>
+
+
+
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <script type="text/javascript">
         window.addEventListener("scroll",function(){
             var header = document.querySelector("header");
@@ -69,6 +177,13 @@
             node.appendChild(textnode);                              // Append the text to <li>
             document.querySelector(".data").appendChild(node); 
         }
+        function openlogin(){
+            $('.ui.modal.loginform').modal('show');
+        }
+        function opensignup(){
+            $('.ui.modal.signupform').modal('show');
+        }
+
     </script>
 </body>
 </html>
