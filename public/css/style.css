@@ -106,7 +106,7 @@ header ul li a:hover{
     box-shadow: -10px 10px 50px #666;
 }
 #urlsearch.input{
-    display: flexbox;
+    display: flex;
     top: 20%;
     margin-left: auto;
     margin-right: auto;
@@ -129,4 +129,10 @@ header ul li a:hover{
 header.sticky .logo,
 header.sticky ul li a{
     color:#555;
+}
+.box{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
