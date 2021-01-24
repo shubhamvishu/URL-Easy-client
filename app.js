@@ -1,4 +1,5 @@
 if(process.env.NODE_ENV !== 'production') {
+    console.log("hereee");
     require('dotenv').config();
 }
 
@@ -31,6 +32,7 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 app.get("/home",(req,res)=>{
+    console.log(process.env.SESSION_SECRET);
     res.redirect("/");
 });
 app.get("/",(req,res)=>{
