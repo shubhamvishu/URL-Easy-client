@@ -28,7 +28,7 @@ app.use(passport.initialize());
 app.use(passport.session()); 
 
 app.get("/home",(req,res)=>{
-   //console.log(process.env.SESSION_SECRET);
+   console.log(process.env.SESSION_SECRET);
     res.redirect("/");
 });
 app.get("/",(req,res)=>{
