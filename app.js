@@ -8,31 +8,31 @@ const app = express();
 const bodyParser = require('body-parser');
 const authroutes = require("./routes/auth/auth.js");
 const passport =require("passport");
-const flash = require('express-flash');
-const initializePassport = require('./passport-config');
-const session = require('express-session');
+//const flash = require('express-flash');
+//const initializePassport = require('./passport-config');
+//const session = require('express-session');
 
-initializePassport(passport,email => {
-    return users.find(user => user.email ===email)
-}); 
+//initializePassport(passport,email => {
+//    return users.find(user => user.email ===email)
+//}); 
 
-const users = [];
+//const users = [];
 
 app.set("view engine","ejs");
 app.use(express.static("public"));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use("/auth",authroutes);
-app.use(flash());
+/*app.use(flash());
 app.use(session({
     secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session()); 
+}));*/
+//app.use(passport.initialize());
+//app.use(passport.session()); 
 
 app.get("/home",(req,res)=>{
-    console.log(process.env.SESSION_SECRET);
+   //console.log(process.env.SESSION_SECRET);
     res.redirect("/");
 });
 app.get("/",(req,res)=>{
