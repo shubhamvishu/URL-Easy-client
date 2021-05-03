@@ -1,12 +1,17 @@
 import './App.css';
-import Header from './components/Header';
-import Banner from './components/Banner';
+import Homepage from './components/Homepage/Homepage';
+import Apppage from './components/Apppage/Apppage'
+import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+
 
 function App() {
   return (
     <div className="App">
-      <Header/>
-      <Banner />
+      <Router>
+        <Route path="/" exact component={Homepage}/>
+        <Route path="/newlink" component={Apppage}/>
+      </Router>
+      
     </div>
   );
 }
