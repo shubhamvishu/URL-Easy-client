@@ -1,40 +1,40 @@
-require('dotenv').config();
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const authroutes = require("./routes/auth/auth.js");
 const passport =require("passport");
-const flash = require('express-flash');
-const initializePassport = require('./passport-config');
-const session = require('express-session');
+const cors = require("cors");
 
-initializePassport(passport,email => {
-    return users.find(user => user.email ===email)
-}); 
-
-const users = [];
-
+app.use(cors());
 app.set("view engine","ejs");
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded({extended: true}));
-app.use("/auth",authroutes);
-app.use(flash());
-app.use(session({
-    secret: process.env.SESSION_SECRET,
-    resave: false,
-    saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session()); 
+app.use(express.urlencoded({extended: true}));
+var corsOptions = {
+    origin: '*',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 
-app.get("/home",(req,res)=>{
-   console.log(process.env.SESSION_SECRET);
-    res.redirect("/");
+app.get("/newlink",cors(),(req,res)=>{
+    console.log(req.query);
+    let originalString = req.query.q;
+  
+    // Create buffer object, specifying utf8 as encoding
+    let bufferObj = Buffer.from(originalString, "utf8");
+  
+    // Encode the Buffer as a base64 string
+    let base64String = bufferObj.toString("base64");
+
+    console.log("The encoded base64 string is:", base64String, base64String.substr(base64String.length-7,base64String.length));
+    
+    res.json({
+        originalurl: req.query.q,
+        newurl: base64String.substr(base64String.length-7,base64String.length)
+    });
 });
-app.get("/",(req,res)=>{
-    res.render("home");
+app.get("/",cors(),(req,res)=>{
+    res.send("Hellooo");
 });
 
 app.listen(process.env.PORT || 5000, ()=>{
-    console.log("Server listenong on port",process.env.PORT || 5000);
+    console.log("Server listening on port",process.env.PORT || 5000);
 });
