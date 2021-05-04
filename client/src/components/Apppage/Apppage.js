@@ -14,7 +14,8 @@ const Apppage = (props) => {
         console.log(parsed); 
         console.log("Query1:",query);
         setQuery(parsed.q)
-        console.log("Query2:",query);
+        console.log("loc:",window.location);
+
     },[]);
 
     
@@ -28,21 +29,21 @@ const Apppage = (props) => {
                 vertical
                 visible
                 width='thin'
-                style={{position:"fixed",top:"0",left:"0",width:"20%"}}
+                style={{position:"fixed",top:"0",left:"0",width:"20%",backgroundColor:"#f9f9f9",color:"#000"}}
                 >
-                <Menu.Item as='a'>
+                <Menu.Item as='a' style={{display:"flex",justifyContent:"start",color:"#000",fontSize:"1.5em"}}>
                     <p>
                         <Icon name='linkify' />
                         Generate URL
                     </p>
                 </Menu.Item>
-                <Menu.Item as='a'>
+                <Menu.Item as='a'style={{color:"#000",fontSize:"1.5em"}}>
                     <p>
-                        <Icon name='folder' style={{margin:"0px"}}/>
+                        <Icon name='folder'/>
                         My URLs
                     </p>
                 </Menu.Item>
-                <Menu.Item as='a'>
+                <Menu.Item as='a' style={{color:"#000",fontSize:"1.5em"}}>
                     <p>
                         <Icon name='camera' />
                         Channels
