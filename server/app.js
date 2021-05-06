@@ -4,6 +4,10 @@ const bodyParser = require('body-parser');
 const authroutes = require("./routes/auth/auth.js");
 const passport =require("passport");
 const cors = require("cors");
+const mongoose = require("mongoose");
+var Url = require("./models/tinyurl");
+
+mongoose.connect("mongodb+srv://dbUser:FAgDbHV4CzOtFTr2@testdb.k1sm2.mongodb.net/testdb?retryWrites=true&w=majority",{ useNewUrlParser: true,useUnifiedTopology: true} );
 
 app.use(cors());
 app.set("view engine","ejs");
@@ -14,7 +18,7 @@ var corsOptions = {
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
-app.get("/newlink",cors(),(req,res)=>{
+app.get("/v1/newlink",cors(),(req,res)=>{
     console.log(req.query);
     let originalString = req.query.q;
   
@@ -25,11 +29,49 @@ app.get("/newlink",cors(),(req,res)=>{
     let base64String = bufferObj.toString("base64");
 
     console.log("The encoded base64 string is:", base64String, base64String.substr(base64String.length-7,base64String.length));
-    
-    res.json({
-        originalurl: req.query.q,
-        newurl: base64String.substr(base64String.length-7,base64String.length)
+
+    var newUrl = {
+        originalurl:originalString,
+        newurl:base64String.substr(base64String.length-7,base64String.length),
+        date : String(new Date().toLocaleDateString())
+    };
+    Url.create(newUrl,function(err,urls){
+        if(err){
+            console.log("Error in creation");
+        }
+        else{
+            console.log("Added");
+            res.json({
+                originalurl: req.query.q,
+                newurl: base64String.substr(base64String.length-7,base64String.length)
+            });
+            //res.send("heyy");
+        }
     });
+});
+app.get("/:tinyurl",cors(),(req,res)=>{
+    console.log("shubhammm");
+    let redirecturl = "";
+    Url.find({newurl:req.params.tinyurl},function(err,urls){
+        if(err){
+            console.log("Error in redirection");
+            //res.redirect('http://localhost:3000');
+        }
+        else{
+            console.log('Data.......')
+            console.log(urls)
+            console.log('.......................')
+            if(urls[0]){
+                console.log("INSide");
+                console.log(urls[0]);
+                console.log(urls[0]?.originalurl);
+                redirecturl = urls[0]?.originalurl;
+                if(urls[0]?.originalurl)
+                    res.send({redirectto:urls[0].originalurl});
+            }
+        }
+    });
+    console.log("REDIRECT:",redirecturl);
 });
 app.get("/",cors(),(req,res)=>{
     res.send("Hellooo");

@@ -27,9 +27,9 @@ const Newurl = ({query}) => {
     const [data, setData] = useState({});
 
     const func = () => {
-        console.log("Shubham");
+        console.log("whaaat");
         //console.log(refurl.current.props.value);
-        axios.get("http://localhost:5000/newlink",{
+        axios.get("http://localhost:5000/v1/newlink",{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'

@@ -13,7 +13,6 @@ const ShowGeneratedURL = ({ data }) => {
                         <Link to={`/${data.newurl}`} style={{fontSize:"2em"}}>{`${window.location.origin}/${data.newurl}`}</Link>
                         <Item.Meta>Description</Item.Meta>
                         <Item.Description>
-                        <Image src='/images/wireframe/short-paragraph.png' />
                         </Item.Description>
                         <Item.Extra>Additional Details</Item.Extra>
                     </Item.Content>

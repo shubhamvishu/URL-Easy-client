@@ -14,8 +14,7 @@ const Apppage = (props) => {
         console.log(parsed); 
         console.log("Query1:",query);
         setQuery(parsed.q)
-        console.log("loc:",window.location);
-
+        console.log("Query2:",query);
     },[]);
 
     

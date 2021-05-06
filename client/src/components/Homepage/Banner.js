@@ -14,8 +14,8 @@ const Banner = () => {
     }
     const returnLink = () => {
         if(urltext.current?.value)
-            return `/newlink?q=${urltext.current?.value}`;
-        else return '/newlink';
+            return `/v1/newlink?q=${urltext.current?.value}`;
+        else return '/v1/newlink';
     }
     return (
         <section className="banner">
