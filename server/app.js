@@ -49,6 +49,21 @@ app.get("/v1/newlink",cors(),(req,res)=>{
         }
     });
 });
+
+app.get("/v1/list",cors(),(req,res) => {
+    Url.find({},function(err,urls){
+        if(err){
+            console.log("Error in redirection");
+            //res.redirect('http://localhost:3000');
+        }
+        else{
+            console.log('List Data.......');
+            console.log(urls);
+            console.log('.......................');
+            res.send(urls);
+        }
+    });
+})
 app.get("/:tinyurl",cors(),(req,res)=>{
     console.log("shubhammm");
     let redirecturl = "";
