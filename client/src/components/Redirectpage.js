@@ -1,13 +1,24 @@
-import React, {useEffect, useState, useRef} from 'react'
-import queryString from 'query-string'
-import axios from 'axios'
+import React, {useEffect, useState, useRef} from 'react';
+import queryString from 'query-string';
+import axios from 'axios';
+import lottie from 'lottie-web';
+import redirectAnimation from '../animation/paperplane.json';
+import {Header} from 'semantic-ui-react';
 
 const Redirectpage = (props) => {
 
     useEffect(()=>{
-        let u = props.location.pathname
-        console.log(u.substring(1));
-        axios.get(`http://localhost:5000/${u.substring(1)}`,{
+        lottie.loadAnimation({
+            container: document.querySelector("#redirectanimation"),
+            animationData: redirectAnimation,
+            renderer: "svg", // "canvas", "html"
+            loop: true, // boolean
+            autoplay: true
+        });
+        console.log("REDIRECT PAGE");
+        let u = props?.location?.pathname
+        console.log(u?.substring(1));
+        axios.get(`http://localhost:5000/${u?.substring(1)}`,{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'
@@ -15,7 +26,9 @@ const Redirectpage = (props) => {
         })
             .then((res) => {
                 console.log(res.data);
-                window.location.replace(res.data.redirectto);
+                setTimeout(()=>{
+                    window.location.replace(res.data.redirectto);
+                },5000);
             })
             .catch((err) => {
                 console.log(err);
@@ -24,7 +37,9 @@ const Redirectpage = (props) => {
     },[])
     return (
         <div>
-            
+            <Header as="h1">REDIRECTING</Header>
+            <div id="redirectanimation" style={{width:"30%",height:"30%",justifyContent:"center",marginLeft:"auto",marginRight:"auto"}}>
+            </div>
         </div>
     )
 }

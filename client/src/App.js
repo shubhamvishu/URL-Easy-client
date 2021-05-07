@@ -10,7 +10,7 @@ function App() {
     <div className="App">
       <Router>
         <Route path="/" exact component={Homepage}/>
-        <Route path="/v1/newlink" component={Apppage}/>
+        <Route path="/v1/newlink" exact component={Apppage}/>
         <Route path="/:url" exact component={Redirectpage}/>
       </Router>
       

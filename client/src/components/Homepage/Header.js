@@ -1,6 +1,6 @@
 import {React, useEffect} from 'react'
 import lottie from 'lottie-web'
-import linkLogo from './link-animation.json'
+import linkLogo from '../../animation/link-animation.json'
 
 const Header = () => {
 
