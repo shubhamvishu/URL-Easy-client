@@ -38,6 +38,7 @@ app.get("/v1/newlink",cors(),(req,res)=>{
     Url.create(newUrl,function(err,urls){
         if(err){
             console.log("Error in creation");
+            console.log(err);
         }
         else{
             console.log("Added");

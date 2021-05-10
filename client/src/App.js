@@ -1,4 +1,4 @@
-import './App.css';
+import './css/App.css';
 import Homepage from './components/Homepage/Homepage';
 import Apppage from './components/Apppage/Apppage';
 import Redirectpage from './components/Redirectpage'

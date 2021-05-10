@@ -1,12 +1,14 @@
 const mongoose = require("mongoose");
 
+console.log("monngoose schema");
 var myurlSchema = new mongoose.Schema({
     originalurl:{
         type:String,
     },
     newurl:{
-        type:String,
-        unique:true
+        unique:true,
+        type:String
+        
     },
     date:{
         type:String
@@ -17,4 +19,4 @@ var myurlSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Url",myurlSchema);
+module.exports = mongoose.model("Tinyurl",myurlSchema);

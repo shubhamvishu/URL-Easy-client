@@ -38,17 +38,10 @@ const ListUrls = ({query}) => {
     return (
         <>
             <div style={{position:"absolute",zIndex:"100",width:"100%",height:"100vh",padding:"0"}}>
-                <div style={{zIndex:"100"}}>
-                    <Header as='h1'>Your tiny URLs</Header>
+                <div style={{zIndex:"0",overflow:"scroll"}}>
+                    <Header as='h1' style={{position:"fixed",width:"80%",backgroundColor:"#fff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}>Your tiny URLs</Header>
 
-                    <ul>    
-                        <li>
-                            {Object.keys(listData).map((listitem,index) => {
-                                //console.log(listData[listitem].newurl);
-                                    return <Header key={index} as="h4">{listData[listitem].newurl}</Header>
-                                })}
-                        </li>
-                    </ul>
+                    
 
                 </div>
             </div>
