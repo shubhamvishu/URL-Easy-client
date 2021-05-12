@@ -21,28 +21,43 @@ const ShowGeneratedURL = ({ data }) => {
           });
     }
     return (
-        <Segment style={{padding:"0",margin:"0",border:"none",margin:"50px",boxShadow:"10px 10px 30px #ddd",borderLeft:"5px solid #1678C1"}}>
-            <Item.Group style={{border:"none",width: "100%"}}>
-                <Item style={{padding:"2em",width: "100%"}}>
-
-                    <Item.Content style={{display: "flex", flexDirection: "row",alignItems: "center",width: "100%",justifyContent: "space-between"}}>
-                        <div>
-                            <Icon name='arrow right' size="big" style={{alignItems: "right"}}/>
-                            <Link to={`/${data.newurl}`} style={{fontSize:"2em"}}>{`${window.location.origin}/${data.newurl}`}</Link>
+        <Segment style={{display:"flex",flexDirection:"column",padding:"20px",margin:"0",border:"none",margin:"50px",boxShadow:"10px 10px 50px #333",borderLeft:"7px solid #12ff31",background:"linear-gradient(to right,#03142b,#0c366e)",color:"#fff",borderRadius:"15px"}}>
+                <h2 style={{textAlign:"left",color:"#c2d7f2"}}>URL details</h2>
+                <Divider style={{border:"0.1px solid #e3f4ff"}}/>
+                <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",width:"100%",flexWrap:"wrap",padding:"2em"}}>
+                    <div style={{flexDirection:"column",flex:"1",textAlign:"left"}}>
+                        <div style={{padding:"1em"}}><h3 style={{textAlign:"start"}}>Generated URL</h3></div>
+                        <div style={{display:"flex",flexDirection:"row",padding:"1em"}}>
+                            <Icon name='arrow right' size="large" style={{alignItems: "right"}}/>
+                            <Link to={`/${data.newurl}`} style={{fontSize:"1.5em",color:"#fff"}}>{`${window.location.origin}/${data.newurl}`}</Link>
                         </div>
-                        <Item.Meta></Item.Meta>
-                        <Item.Description style={{float: "right",display: "flex",justifyContent: "center",alignItems: "center"}}>
-                            <CopyToClipboard text={`http://localhost:3000/${data.newurl}`}>
-                                <Icon id="copylink" name="clone outline" size="big" onClick={copyTextToClipboard}/>
-                            </CopyToClipboard>
-                        </Item.Description>
-                    </Item.Content>
-                    <Divider />
-                </Item>
-
-               
-
-            </Item.Group>
+                    </div>
+                    <div style={{display:"flex",flexDirection:"row",flex:"1",textAlign:"left",padding:"2em",justifyContent:"space-around"}}>
+                        <div style={{flex:"1"}}>
+                            <div >
+                                <CopyToClipboard text={`http://localhost:3000/${data.newurl}`}>
+                                    <Icon id="copylink" name="clone outline" size="big" style={{alignItems: "right",color:"#fff"}} onClick={copyTextToClipboard}/>
+                                </CopyToClipboard>
+                            </div>
+                        </div>
+                        <div style={{flex:"1"}}>
+                            <div>
+                                <Icon name="external alternate" size="big" style={{alignItems: "right",color:"#fff"}} onClick={copyTextToClipboard}/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style={{display:"flex",flexDirection:"row",justifyContent:"space-between",alignItems:"center",width:"100%",flexWrap:"wrap",padding:"2em"}}>
+                    <div style={{flexDirection:"column",flex:"1",textAlign:"left"}}>
+                        <div style={{padding:"1em"}}><h3 style={{textAlign:"start"}}>Original URL</h3></div>
+                        <div style={{display:"flex",flexDirection:"row",padding:"1em"}}>
+                            <Icon name='arrow right' size="large" style={{alignItems: "right"}}/>
+                            <Link to={`/${data.originalurl}`} style={{fontSize:"1.5em",color:"#fff"}}>{`${data.originalurl}`}</Link>
+                        </div>
+                    </div>
+                    <div id="redirectanim" style={{flex:"1",backgroundColor:"red",width:"20%",height:"20%"}}></div>
+                </div>           
         </Segment>
     )
 }

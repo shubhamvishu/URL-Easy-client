@@ -31,7 +31,7 @@ const Apppage = (props) => {
                 vertical
                 visible
                 width='thin'
-                style={{position:"fixed",top:"0",left:"0",width:"20%",backgroundColor:"#1678C1",color:"#fff",boxShadow:"10px 10px 30px #bbb"}}
+                style={{position:"fixed",top:"0",left:"0",width:"20%",backgroundColor:"#002b59",color:"#fff",boxShadow:"10px 10px 30px #bbb"}}
                 >
                 <Menu.Item as='a' style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500"}} onClick={()=>{setSidebarOption(0)}}>
                     <p>
@@ -56,7 +56,7 @@ const Apppage = (props) => {
             <Sidebar.Pushable as={Segment} style={{margin:"0"}}>
                 
                 <Sidebar.Pusher>
-                    <Segment size="massive" style={{height: "100vh",backgroundColor:"#f8f8f8",width:"80%",float:"right",border:"none",padding:"0",overflow:"scroll"}}>
+                    <Segment size="massive" style={{height: "100vh",backgroundColor:"#fff",width:"80%",float:"right",border:"none",padding:"0",overflow:"scroll"}}>
                         
                         {(sidebarOption==0)?<Newurl query={parsed.q}/>:""}
                         {(sidebarOption==1)?<ListUrls/>:""}

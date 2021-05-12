@@ -94,13 +94,14 @@ const Newurl = ({query}) => {
                     
                     {(isProgress && !urldata)?<ShowProgress setIsProgress={setIsProgress} errmsg={{msg:errmsg,setmsg: setErrmsg}} setData={setData} setUrldata={setUrldata} longurl={longurl}/>:""}        
                     
-                    {(isProgress && !urldata)?<Segment style={{width:"70%",justifyContent:"center",alignItems:"center",textAlign:"center",marginLeft:"auto",marginRight:"auto"}}>
-                        <Dimmer active inverted>
-                            <Loader size='large'>Loading</Loader>
-                        </Dimmer>
+                    {(isProgress && !urldata)?
+                        <Segment style={{width:"70%",justifyContent:"center",alignItems:"center",textAlign:"center",marginLeft:"auto",marginRight:"auto",boxShadow:"10px 10px 30px #bbb"}}>
+                            <Dimmer active inverted>
+                                <Loader size='large'>Loading</Loader>
+                            </Dimmer>
 
-                        <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />                   
-                    </Segment>:""}
+                            <Image src='https://react.semantic-ui.com/images/wireframe/paragraph.png' />                   
+                        </Segment>:""}
                     {(urldata)?<ShowGeneratedURL data={data}/> : ""}
                 </div>
             </div>

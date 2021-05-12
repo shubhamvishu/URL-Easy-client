@@ -1,6 +1,9 @@
 import React ,{ useEffect, useState } from 'react'
 import { Header, Input, Icon, Image, Menu, Segment, Sidebar, Button, Loader, Step, Dimmer } from 'semantic-ui-react'
-import axios from 'axios'
+import axios from 'axios';
+import lottie from 'lottie-web';
+import redirectAnimation from '../../animation/paperplane2.json';
+
 
 const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) => {
 
