@@ -207,3 +207,17 @@ header.sticky ul li a {
     animation: App-logo-spin infinite 20s linear;
   }
 }
+
+#listitem {
+  height: 10vh;
+  transition: 0.2s linear;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid #ddd;
+  border-left: 10px solid #00ff0f;
+}
+
+#listitem:hover {
+  background-color: #f9f9f9;
+  height: 20vh;
+}

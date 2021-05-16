@@ -6,6 +6,7 @@ import ShowGeneratedURL from './ShowGeneratedURL'
 import ShowProgress from './ShowProgress'
 import lottie from 'lottie-web';
 import redirectAnimation from '../../animation/paperplane2.json';
+import {withRouter} from 'react-router';
 
 const Newurl = ({query}) => {
 
