@@ -66,7 +66,7 @@ const Apppage = (props) => {
                     <Segment size="massive" style={{height: "100vh",backgroundColor:"#fff",width:"80%",float:"right",border:"none",padding:"0",overflow:"scroll"}} props>
                         <div id="show"></div>
                         
-                            <Route path="/v1/newlink" exact component={Newurl}/>
+                            <Route path="/v1/newlink" exact><Newurl query={parsed.q}/></Route>
                             <Route path="/v1/list" exact component={ListUrls}/>    
 
                     </Segment>

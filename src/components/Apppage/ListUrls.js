@@ -67,7 +67,7 @@ const ListUrls = ({query}) => {
                                             <div style={{display:"flex",flex:"2",justifyContent:"start",wordWrap: "break-word",fontSize:"1.3em"}}>
                                                 <p><input value={listItem.newurl} style={{minWidth:"100%",padding:"0.5em",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p>
                                                 <div className="copyicon" style={{display:"flex",alignItems:"center",justifyContent:"center",marginLeft:"2em"}}>
-                                                    <CopyToClipboard text={`http://localhost:3000/${listItem.newurl}`}>
+                                                    <CopyToClipboard text={`${window.location.origin}/${listItem.newurl}`}>
                                                         <Icon name="clone outline"></Icon>
                                                     </CopyToClipboard>
                                                 </div>

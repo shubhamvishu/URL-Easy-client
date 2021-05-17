@@ -22,7 +22,7 @@ const Header = () => {
     return (
         <div>
 
-            <header>
+            <header style={{display:"flex"}}>
                 <a href="#" className="logo" style={{display:"flex",justifyContent: "center",alignItems: "center"}}>
                     {Appname}
                     <div id="link-logo" style={{width: "100px", height: "100px",display: "inline"}}></div>
