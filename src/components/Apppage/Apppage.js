@@ -66,10 +66,12 @@ const Apppage = (props) => {
                 <Sidebar.Pusher>
                     <Segment size="massive" style={{height: "100vh",backgroundColor:"#fff",width:"80%",float:"right",border:"none",padding:"0",overflow:"scroll"}} props>
                         <div id="show"></div>
-                        
+                            <Switch>
                             <Route path="/v1/newlink" exact><Newurl query={parsed.q}/></Route>
                             <Route path="/v1/list" exact component={ListUrls}/>
                             <Route path="*" component={DefaultAppPage}/>
+                            </Switch>
+                            
 
                     </Segment>
                 </Sidebar.Pusher>

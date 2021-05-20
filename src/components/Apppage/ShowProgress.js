@@ -132,7 +132,7 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
                     </Step.Content>
                 </Step>
                         
-                <Step completed={progressData.step2} active={!progressData.step2} style={{backgroundColor: progressData.step1?"#e8ffee":"#fff"}}>
+                <Step completed={progressData.step2} active={!progressData.step2} style={{backgroundColor: progressData.step2?"#e8ffee":"#fff"}}>
                     {(progressData.step2)?<Icon name='check circle' />:<Icon name='wait' />}
                     <Step.Content>
                         <Step.Title>URL Status</Step.Title>
