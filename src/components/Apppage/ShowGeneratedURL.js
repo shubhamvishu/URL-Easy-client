@@ -48,7 +48,7 @@ const ShowGeneratedURL = ({ data }) => {
                     <div style={{display:"flex",flexDirection:"row",flex:"1",textAlign:"center",alignItems:"center",justifyContent:"space-between"}}>
                         <div style={{flex:"1"}}>
                             <div >
-                                <CopyToClipboard text={`http://localhost:3000/${data.newurl}`}>
+                                <CopyToClipboard text={`${window.location.origin}/${data.newurl}`}>
                                     <Icon id="copylink" name="clone outline" size="big" style={{alignItems: "right",color:"#fff"}} onClick={copyTextToClipboard}/>
                                 </CopyToClipboard>
                             </div>

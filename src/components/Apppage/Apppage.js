@@ -1,6 +1,7 @@
 import React, { useEffect,useState } from 'react'
 import queryString from 'query-string'
 import Newurl from './Newurl'
+import DefaultAppPage from './DefaultAppPage'
 import Redirectpage from '../Redirectpage'
 import ListUrls from './ListUrls'
 import { Header, Icon, Image, Menu, Segment, Sidebar} from 'semantic-ui-react'
@@ -67,7 +68,8 @@ const Apppage = (props) => {
                         <div id="show"></div>
                         
                             <Route path="/v1/newlink" exact><Newurl query={parsed.q}/></Route>
-                            <Route path="/v1/list" exact component={ListUrls}/>    
+                            <Route path="/v1/list" exact component={ListUrls}/>
+                            <Route path="*" component={DefaultAppPage}/>
 
                     </Segment>
                 </Sidebar.Pusher>

@@ -243,3 +243,11 @@ header.sticky ul li a {
   height: 2em;
   border-radius: 50%;
 }
+
+.completed {
+  background-color: #333;
+}
+
+.stepprogress {
+  background-color: #888;
+}

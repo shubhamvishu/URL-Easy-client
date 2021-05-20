@@ -124,7 +124,7 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
     
     return (
         <Step.Group stackable='tablet' style={{border:"none",boxShadow:"10px 10px 30px #bbb"}}>
-                <Step completed={progressData.step1} active={!progressData.step1}>
+                <Step completed={progressData.step1} active={!progressData.step1} style={{backgroundColor: progressData.step1?"#e8ffee":"#fff"}}>
                     {(progressData.step1)?<Icon name='checkmark' />:<Icon name='wait' />}
                     <Step.Content>
                         <Step.Title>{(progressData.step1)?"Validated":"Validating"}</Step.Title>
@@ -132,7 +132,7 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
                     </Step.Content>
                 </Step>
                         
-                <Step completed={progressData.step2} active={!progressData.step2}>
+                <Step completed={progressData.step2} active={!progressData.step2} style={{backgroundColor: progressData.step1?"#e8ffee":"#fff"}}>
                     {(progressData.step2)?<Icon name='check circle' />:<Icon name='wait' />}
                     <Step.Content>
                         <Step.Title>URL Status</Step.Title>
@@ -140,7 +140,7 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
                     </Step.Content>
                 </Step>
     
-                <Step completed={progressData.step3} active={!progressData.step3}>
+                <Step completed={progressData.step3} active={!progressData.step3} style={{backgroundColor: progressData.step3?"#e8ffee":"#fff"}}>
                     {(progressData.step3)?<Icon name='checkmark' />:<Icon name='wait' />}
 
                     <Step.Content>

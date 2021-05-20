@@ -8,12 +8,13 @@ import redirectAnimation from '../../animation/paperplane2.json';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import "../../css/App.css";
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Loader from "react-loader-spinner";
 
 const ListUrls = ({query}) => {
 
     const [listData,setListData] = useState([]);
     const [allData,setAllData] = useState([]);
-
+    const [listLoaded, setListLoaded] = useState(false);
     const [activePage, setActivePage] = useState(1);
 
     useEffect(()=>{
@@ -29,6 +30,7 @@ const ListUrls = ({query}) => {
                 setAllData(res.data);
                 console.log(activePage);
                 setListData(res.data.slice((activePage-1)*10,activePage*10));
+                setListLoaded(true);
                 console.log('ANS ',listData);
                
             })
@@ -55,8 +57,11 @@ const ListUrls = ({query}) => {
         <>
             <div style={{position:"absolute",zIndex:"100",width:"100%",height:"100vh",padding:"0",backgroundColor:"#f9f9f9"}}>
                 <div style={{zIndex:"0",overflow:"scroll"}}>
+
                     <Header as='h1' style={{backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}>Your tiny URLs</Header>
+                    <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} visible={!listLoaded}/>
                     <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"100%"}}>
+                    
                         {listData.map((listItem,index) => {
                             return(
                                 <Segment id="listitem" key={index} style={{display:"flex",flexDirection:"row",margin:"1em"}}>
@@ -71,7 +76,7 @@ const ListUrls = ({query}) => {
                                                         <Icon name="clone outline"></Icon>
                                                     </CopyToClipboard>
                                                 </div>
-                                                <div style={{paddingLeft:"5%"}}>
+                                                <div className="copyicon" style={{display:"flex",alignItems:"center",justifyContent:"center",marginLeft:"2em"}}>
                                                     <a href={`/${listItem.newurl}`} target="_blank"><Icon name="external square alternate"/></a>
                                                 </div>
                                             </div>
