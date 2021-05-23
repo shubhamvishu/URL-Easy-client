@@ -76,7 +76,7 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
     const getShortUrl = (url) => {
         console.log("H");
         console.log("fgetching tiny url");
-        axios.get("http://localhost:5000/v1/newlink",{
+        axios.get("https://agile-ravine-23097.herokuapp.com/v1/newlink",{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'

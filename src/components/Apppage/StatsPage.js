@@ -34,7 +34,7 @@ const StatsPage = (props) => {
 
     useState(()=>{
         //https://agile-ravine-23097.herokuapp.com/v1/list
-        axios.get("http://localhost:5000/v1/list",{
+        axios.get("https://agile-ravine-23097.herokuapp.com/v1/list",{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'
