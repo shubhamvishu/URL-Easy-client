@@ -18,7 +18,8 @@ const Redirectpage = (props) => {
         console.log("REDIRECT PAGE");
         let u = props?.location?.pathname
         console.log(u?.substring(1));
-        axios.get(`https://agile-ravine-23097.herokuapp.com/${u?.substring(1)}`,{
+        //https://agile-ravine-23097.herokuapp.com
+        axios.get(`http://localhost:5000/${u?.substring(1)}`,{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'

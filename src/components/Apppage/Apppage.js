@@ -4,6 +4,8 @@ import Newurl from './Newurl'
 import DefaultAppPage from './DefaultAppPage'
 import Redirectpage from '../Redirectpage'
 import ListUrls from './ListUrls'
+import UrlStats from './UrlStats'
+import StatsPage from './StatsPage'
 import { Header, Icon, Image, Menu, Segment, Sidebar} from 'semantic-ui-react'
 import { BrowserRouter as Router, Switch, Route, Link, withRouter } from 'react-router-dom';
 
@@ -54,10 +56,13 @@ const Apppage = (props) => {
                     </Link>
                 </Menu.Item>
                 <Menu.Item  style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500"}} onClick={()=>{setSidebarOption(2)}}>
-                    <p>
-                        <Icon name='line graph' style={{paddingRight:"2em"}}/>
-                        Statistics
-                    </p>
+                   
+                    <Link to="/v1/stats" >
+                        <p>
+                            <Icon name='line graph' style={{paddingRight:"2em"}}/>
+                            Statistics
+                        </p>
+                    </Link>
                 </Menu.Item>
             </Sidebar>
 
@@ -69,6 +74,8 @@ const Apppage = (props) => {
                             <Switch>
                             <Route path="/v1/newlink" exact><Newurl query={parsed.q}/></Route>
                             <Route path="/v1/list" exact component={ListUrls}/>
+                            <Route path="/v1/stats" exact component={StatsPage}/>
+                            <Route path="/v1/:tinyurl/stats" component={UrlStats}/>
                             <Route path="*" component={DefaultAppPage}/>
                             </Switch>
                             
