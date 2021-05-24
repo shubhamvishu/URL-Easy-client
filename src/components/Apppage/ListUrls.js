@@ -58,7 +58,7 @@ const ListUrls = ({query}) => {
             <div style={{position:"absolute",zIndex:"100",width:"100%",height:"100vh",padding:"0",backgroundColor:"#f9f9f9"}}>
                 <div style={{zIndex:"0",overflow:"scroll"}}>
 
-                    <Header as='h1' style={{backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}>Your tiny URLs</Header>
+                    <Header as='h1' style={{display:"flex",backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}><Link to="/"><Icon name="arrow left" size="small"/></Link><p style={{marginLeft:"auto",marginRight:"auto"}}>Your tiny URLs</p></Header>
                     <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} visible={!listLoaded}/>
                     <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"100%"}}>
                     

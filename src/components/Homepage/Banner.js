@@ -31,7 +31,7 @@ const Banner = () => {
                         <input className="urltextbox" type="text" placeholder="Paste URL..." ref={urltext}/>
                         
                          
-                        <Link className="urlbutton" to={returnLink}>
+                        <Link id="defaultlink" className="urlbutton" to={returnLink}>
                             Get URL
                         </Link>
                     </div>

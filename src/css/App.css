@@ -48,6 +48,7 @@ a {
 
 a:hover {
   text-decoration: none;
+  color: inherit;
 }
 
 a:focus {
@@ -250,4 +251,7 @@ header.sticky ul li a {
 
 .stepprogress {
   background-color: #888;
+}
+#defaultlink{
+  color:#fff;
 }

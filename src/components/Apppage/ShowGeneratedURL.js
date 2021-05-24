@@ -19,18 +19,7 @@ const ShowGeneratedURL = ({ data }) => {
 
     const copyTextToClipboard = () => {
         console.log("copyyyy");
-        alert("yo");
-        navigator.permissions.query({name: "clipboard-read"}).then(result => {
-            console.log("Read: ",result);
-          });
-        navigator.permissions.query({name: "clipboard-write"}).then(result => {
-            console.log("Write: ",result);
-          });
-          navigator.clipboard.writeText("jhgfds").then(function() {
-            /* clipboard successfully set */
-          }, function() {
-            /* clipboard write failed */
-          });
+        alert("Link copied");
     }
     return (
         <Segment style={{display:"flex",flexDirection:"column",padding:"20px",margin:"0",border:"none",margin:"50px",boxShadow:"10px 10px 50px #333",borderLeft:"7px solid #12ff31",background:"linear-gradient(to right,#01070f,#0c366e)",color:"#fff",borderRadius:"15px"}}>
