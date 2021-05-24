@@ -1,6 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
+import { Header, Input, Icon, Image, Menu, Segment, Sidebar, Button, Loader, Step, Dimmer } from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
+
 
 const StatsPage = (props) => {
 
@@ -60,7 +63,7 @@ const StatsPage = (props) => {
     return (
         <div style={{padding:"2em"}}>
             <div className='header'>
-            <h1 className='title'>URL Usage Statistics</h1>
+            <h1 className='title' style={{display:"flex"}}><Link to="/v1/list"><Icon name="arrow left" size="small"/></Link><p style={{marginLeft:"auto",marginRight:"auto"}}>URL Usage Statistics</p></h1>
             </div>
             <Line data={data} options={options}  responsive={true}/>
         </div>

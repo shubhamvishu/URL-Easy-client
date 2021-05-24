@@ -39,31 +39,33 @@ const Apppage = (props) => {
                 width='thin'
                 style={{position:"fixed",top:"0",left:"0",width:"20%",backgroundColor:"#002b59",color:"#fff",height:"100vh",boxShadow:"10px 10px 30px #bbb"}}
                 >
-                <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500"}} onClick={()=>{setSidebarOption(0)}}>
-                    <Link to="/v1/newlink" >
-                    <p>
-                        <Icon name='linkify' style={{paddingRight:"1.5em",fontWeight:"200"}}/>
-                        Generate URL
-                    </p>
-                    </Link>
-                </Menu.Item>
-                <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500"}} onClick={()=>{setSidebarOption(1)}}>
-                    <Link to="/v1/list" >
-                        <p>
-                            <Icon name='folder' style={{paddingRight:"2em"}}/>
-                            My URLs
-                        </p>
-                    </Link>
-                </Menu.Item>
-                <Menu.Item  style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500"}} onClick={()=>{setSidebarOption(2)}}>
-                   
-                    <Link to="/v1/stats" >
-                        <p>
-                            <Icon name='line graph' style={{paddingRight:"2em"}}/>
-                            Statistics
-                        </p>
-                    </Link>
-                </Menu.Item>
+                <Link to="/v1/newlink">
+                    <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(0)}}>
+                        
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='linkify' style={{paddingRight:"1.5em",fontWeight:"200"}}/>
+                                Generate URL
+                            </p>
+                       
+                    </Menu.Item>
+                </Link>       
+                <Link to="/v1/list" >
+                    <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(1)}}>
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='folder' style={{paddingRight:"2em"}}/>
+                                My Easy URLs
+                            </p>
+                    </Menu.Item>
+                </Link>
+                <Link to="/v1/stats" >
+                    <Menu.Item  style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(2)}}> 
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='line graph' style={{paddingRight:"2em"}}/>
+                                Statistics
+                            </p>
+                    </Menu.Item>
+                </Link>
+                
             </Sidebar>
 
             <Sidebar.Pushable as={Segment} style={{margin:"0"}}>
