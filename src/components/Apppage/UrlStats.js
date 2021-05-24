@@ -13,9 +13,10 @@ const UrlStats = (props) => {
           {
             label: '# of Redirects',
             data: urldata,
-            fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
+            fill: true,
+            backgroundColor: 'rgba(48, 220, 242, 0.5)',
+            borderColor: 'rgb(48, 220, 242)',
+            borderWidth: 5
           },
         ],
       };
@@ -57,7 +58,7 @@ const UrlStats = (props) => {
 
     useState(()=>{
         //https://agile-ravine-23097.herokuapp.com/v1/list
-        axios.get(`http://localhost:5000/v1/${props.match.params.tinyurl}/stats`,{
+        axios.get(`https://agile-ravine-23097.herokuapp.com/v1/${props.match.params.tinyurl}/stats`,{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'

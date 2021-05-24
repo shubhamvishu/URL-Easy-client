@@ -13,9 +13,10 @@ const StatsPage = (props) => {
           {
             label: '# of Redirects',
             data: urldata,
-            fill: false,
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgba(255, 99, 132, 0.2)',
+            fill: true,
+            backgroundColor: 'rgba(48, 220, 242, 0.5)',
+            borderColor: 'rgb(48, 220, 242)',
+            borderWidth: 4
           },
         ],
       };
