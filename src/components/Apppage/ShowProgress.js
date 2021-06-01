@@ -153,4 +153,4 @@ const ShowProgress = ({ setIsProgress, errmsg, setData, setUrldata, longurl}) =>
     )
 }
 
-export default ShowProgress
+export default ShowProgress;
