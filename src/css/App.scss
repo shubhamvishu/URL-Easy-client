@@ -242,17 +242,22 @@ header.sticky {
 
 #listdata{
 	flex-direction: row;
+	height: 100vh;
 }
 #mobilesidebar{
 	display: none;
 	width: 30%;
 	top:12vh;
 	left:70%;
+	transition: 2s linear infinite;
 }
 #displayOnMobile{
 	display:none;
 }
-@media (max-width:768px){
+.listleft{
+	overflow: scroll;
+}
+@media (max-width:1050px){
 	#appsidebar{
 		display: none;
 	}
@@ -270,5 +275,13 @@ header.sticky {
 	}
 	#displayOnMobile{
 		display: block;
+	}
+	.listleft{
+		order: 2;
+		overflow: visible;
+	}
+	.listright{
+		order: 1;
+		overflow: visible;
 	}
 }

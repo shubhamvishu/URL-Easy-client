@@ -83,7 +83,7 @@ const Newurl = ({query, toggleSidebar}) => {
         <>
             <div style={{position:"absolute",zIndex:"100",width:"100%",height:"100vh",padding:"0"}}>
                 <div style={{zIndex:"100"}}>
-                    <Header as='h1' style={{display:"flex",backgroundColor:"#e3f5ff",height:"12vh",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}} onClick={()=> setVisible(!visible)}><Link to="/"><Icon name="arrow left" size="small"/></Link><p style={{marginLeft:"auto",marginRight:"auto"}}>Create Tiny URLs</p><Icon id="displayOnMobile" name="bars" size="small" onClick={toggleSidebar}/></Header>
+                    <Header as='h1' style={{display:"flex",margin:"0%",backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}} onClick={()=> setVisible(!visible)}><Link to="/"><Icon name="arrow left" size="small"/></Link><p style={{marginBottom:"0",marginLeft:"auto",marginRight:"auto"}}>Create Tiny URLs</p><Icon id="displayOnMobile" name="bars" size="small" onClick={toggleSidebar}/></Header>
                     <input style={{width:"60%",padding: "0.7em",backgroundColor:"white",borderRadius:"5px",border: "none",boxShadow:"20px 20px 50px #ddd",marginTop:"30px"}} ref={refurl} placeholder="Enter URL"/>
                     <Button size="big" primary onClick={func} style={{boxShadow:"10px 10px 30px #aaa",marginLeft:"1em",padding: "1em"}}>Generate</Button>
                     
