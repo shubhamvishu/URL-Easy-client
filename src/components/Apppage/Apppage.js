@@ -15,7 +15,7 @@ const Apppage = (props) => {
     const [query, setQuery] = useState('');
     const parsed = queryString.parse(props.location.search);
     const [sidebarOption,setSidebarOption] = useState(0);
-
+    const [Msidebar,setMSidebar] = useState(false);
     useEffect(() =>{
         console.log("apppage");
         console.log(parsed); 
@@ -24,12 +24,18 @@ const Apppage = (props) => {
         console.log("Query2:",query);
     },[visible]);
 
+    const toggleSidebar = () => {
+        
+        setMSidebar(!Msidebar);
+        
+    }
     
     return (
         
         <div>
             
             <Sidebar
+                id="appsidebar"
                 as={Menu}
                 animation='overlay'
                 icon='labeled'
@@ -67,18 +73,57 @@ const Apppage = (props) => {
                 </Link>
                 
             </Sidebar>
-
+            {Msidebar?<Sidebar
+                id="mobilesidebar"
+                as={Menu}
+                animation='overlay'
+                icon='labeled'
+                inverted
+                vertical
+                visible
+                width='thin'
+                style={{zIndex:"100",position:"fixed",backgroundColor:"#000",color:"#fff",height:"100vh",boxShadow:"10px 10px 30px #bbb"}}
+                >
+                <Link to="/v1/newlink" onClick={toggleSidebar}>
+                    <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(0)}}>
+                        
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='linkify' style={{paddingRight:"1.5em",fontWeight:"200"}}/>
+                                Generate URL
+                            </p>
+                       
+                    </Menu.Item>
+                </Link>       
+                <Link to="/v1/list" onClick={toggleSidebar}>
+                    <Menu.Item style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(1)}}>
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='folder' style={{paddingRight:"2em"}}/>
+                                My Easy URLs
+                            </p>
+                    </Menu.Item>
+                </Link>
+                <Link to="/v1/stats" onClick={toggleSidebar}>
+                    <Menu.Item  style={{padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={()=>{setSidebarOption(2)}}> 
+                            <p style={{fontWeight:"350"}}>
+                                <Icon name='line graph' style={{paddingRight:"2em"}}/>
+                                Statistics
+                            </p>
+                    </Menu.Item>
+                </Link>
+                
+            </Sidebar>
+            :""}
             <Sidebar.Pushable as={Segment} style={{margin:"0"}}>
                 
                 <Sidebar.Pusher>
-                    <Segment size="massive" style={{height: "100vh",backgroundColor:"#fff",width:"80%",float:"right",border:"none",padding:"0",overflow:"scroll"}} props>
+                    <Segment id="pushablecontent" size="massive" style={{height: "100vh",backgroundColor:"#fff",float:"right",border:"none",padding:"0",overflow:"scroll"}} props>
                         <div id="show"></div>
                             <Switch>
-                            <Route path="/v1/newlink" exact><Newurl query={parsed.q}/></Route>
-                            <Route path="/v1/list" exact component={ListUrls}/>
-                            <Route path="/v1/stats" exact component={StatsPage}/>
-                            <Route path="/v1/:tinyurl/stats" component={UrlStats}/>
-                            <Route path="*" component={DefaultAppPage}/>
+                            <Route path="/v1/newlink" exact><Newurl query={parsed.q} toggleSidebar={toggleSidebar}/></Route>
+                            <Route path="/v1/list" exact ><ListUrls toggleSidebar={toggleSidebar}/></Route>
+                            <Route path="/v1/stats" exact><StatsPage toggleSidebar={toggleSidebar}/></Route>
+                            <Route path="/v1/:tinyurl/stats" render={(props) => <UrlStats  toggleSidebar={toggleSidebar} {...props} /> }/>
+                            <Route path="*"><DefaultAppPage toggleSidebar={toggleSidebar}/></Route>
                             </Switch>
                             
 

@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react'
 import axios from 'axios';
 import { Line } from 'react-chartjs-2';
+import { Header, Icon, Image, Menu, Segment, Sidebar} from 'semantic-ui-react'
 
 const UrlStats = (props) => {
 
@@ -58,7 +59,9 @@ const UrlStats = (props) => {
 
     useState(()=>{
         //https://agile-ravine-23097.herokuapp.com/v1/list
-        axios.get(`https://agile-ravine-23097.herokuapp.com/v1/${props.match.params.tinyurl}/stats`,{
+        //console.log(props);
+        if(props.match.params.tinyurl){
+            axios.get(`https://agile-ravine-23097.herokuapp.com/v1/${props.match.params.tinyurl}/stats`,{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'
@@ -82,15 +85,18 @@ const UrlStats = (props) => {
             .catch((err) => {
                 console.log(err);
             })
+        }
+        
     },[]);
 
     
     return (
         <div style={{padding:"2em"}}>
-            <div className='header'>
-            <h1 className='title'>URL Usage Statistics</h1>
-            <div className='links'>
-            </div>
+            <div className='header' style={{display:"flex"}}>
+                <Icon id="displayOnMobile" name="bars" size="small" onClick={props.toggleSidebar}/>
+                <h1 className='title' style={{display:"flex",marginLeft:"auto",marginRight:"auto"}}>URL Usage Statistics  </h1>
+                <div className='links'>
+                </div>
             </div>
             <Line data={data} options={options} />
         </div>

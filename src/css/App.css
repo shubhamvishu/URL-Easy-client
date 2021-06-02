@@ -48,7 +48,6 @@ a {
 
 a:hover {
   text-decoration: none;
-  color: inherit;
 }
 
 a:focus {
@@ -252,6 +251,55 @@ header.sticky ul li a {
 .stepprogress {
   background-color: #888;
 }
-#defaultlink{
-  color:#fff;
+
+.ui.search > .results {
+  max-width: 23rem;
+  max-height: 12rem;
+  padding: 0px;
+  margin: 0px;
+  overflow: scroll;
+}
+
+#search > input {
+  background-color: #000;
+}
+
+#pushablecontent {
+  width: 80%;
+}
+
+#listdata {
+  flex-direction: row;
+}
+
+#mobilesidebar {
+  display: none;
+  width: 30%;
+  top: 12vh;
+  left: 70%;
+}
+
+#displayOnMobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  #appsidebar {
+    display: none;
+  }
+  #pushablecontent {
+    width: 100%;
+  }
+  #listdata {
+    flex-direction: column;
+  }
+  #mobilesidebar {
+    display: block;
+    width: 70%;
+    top: 12vh;
+    left: 30%;
+  }
+  #displayOnMobile {
+    display: block;
+  }
 }

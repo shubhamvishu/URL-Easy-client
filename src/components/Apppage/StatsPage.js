@@ -62,8 +62,9 @@ const StatsPage = (props) => {
     
     return (
         <div style={{padding:"2em"}}>
-            <div className='header'>
-            <h1 className='title' style={{display:"flex"}}><Link to="/v1/list"><Icon name="arrow left" size="small"/></Link><p style={{marginLeft:"auto",marginRight:"auto"}}>URL Usage Statistics</p></h1>
+            <div className='header' style={{display:"flex"}}>
+            <Icon id="displayOnMobile" name="bars" size="small" onClick={props.toggleSidebar}/>
+            <h1 className='title' style={{display:"flex",marginLeft:"auto",marginRight:"auto"}}><Link to="/v1/list"><Icon name="arrow left" size="small"/></Link><p style={{marginLeft:"auto",marginRight:"auto"}}>All URL Usage Statistics</p></h1>
             </div>
             <Line data={data} options={options}  responsive={true}/>
         </div>
