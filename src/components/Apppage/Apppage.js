@@ -82,7 +82,7 @@ const Apppage = (props) => {
                 vertical
                 visible
                 width='thin'
-                style={{zIndex:"100",position:"fixed",top:"0",backgroundColor:"#000",color:"#333",height:"100vh",boxShadow:"10px 10px 30px #bbb"}}
+                style={{zIndex:"100",position:"fixed",top:"0",backgroundColor:"#022B59",color:"#333",height:"100vh",boxShadow:"10px 10px 30px #bbb"}}
                 >
                 <Menu.Item style={{display:"flex",alignItems:"flex-end",padding:"1.5em",color:"#fff",fontSize:"1.5em",fontWeight:"500",borderBottom:"0.01em solid #173C66"}} onClick={toggleSidebar}>
                         

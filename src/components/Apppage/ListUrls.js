@@ -124,11 +124,11 @@ const ListUrls = ({toggleSidebar}) => {
 
     return (
         <>
-            <div style={{position:"absolute",zIndex:"100",width:"100%",height:"100vh",padding:"0",backgroundColor:"#f9f9f9"}}>
+            <div style={{position:"absolute",width:"100%",height:"100vh",padding:"0",backgroundColor:"#f9f9f9"}}>
                 <div style={{zIndex:"0"}}>
 
-                    <Header as='h1' style={{display:"flex",backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}><Link to="/"><Icon name="arrow left" size="small"/></Link><p style={{marginBottom:"0",marginLeft:"auto",marginRight:"auto"}}>Your tiny URLs</p><Icon id="displayOnMobile" name="bars" size="small" onClick={toggleSidebar}/></Header>
-                    <div id="listdata" style={{display:"flex",height:"100vh"}}>
+                    <Header as='h1' id="listhead" style={{display:"flex",zIndex:"10",position:"fixed",top:"0",backgroundColor:"#e3f5ff",color:"#0b568f",padding:"1em",boxShadow:"10px 10px 40px #ddd"}}><Link to="/"><Icon name="arrow left" size="small"/></Link><p style={{marginBottom:"0",marginLeft:"auto",marginRight:"auto"}}>Your tiny URLs</p><Icon id="displayOnMobile" style={{fontSize:"1em"}} name="bars" size="tiny" onClick={toggleSidebar}/></Header>
+                    <div id="listdata" style={{display:"flex",height:"100vh",marginTop:"5em"}}>
                         <div className="listleft" style={{flex:"2",borderRight:"2px solid #ddd"}}>
                             <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center",width:"100%"}}>
 
@@ -140,24 +140,26 @@ const ListUrls = ({toggleSidebar}) => {
                                                 <span style={{top:"0",left:"20px",padding:"5px"}}>{(activePage-1)*10+(index+1)}</span>
                                             </div>        
                                             <div style={{display:"flex",flexDirection:"column",flex:"15",justifyContent:"start",padding:"1em"}}>
-                                                <div style={{display:"flex"}}>
+                                                <div className="listpart1" style={{display:"flex"}}>
                                                     <div style={{display:"flex",flex:"1",alignItems:"center",fontSize:"1.3em",fontWeight:"bold"}}><p>Tiny URL</p></div>
-                                                    <div style={{display:"flex",flex:"2",justifyContent:"start",wordWrap: "break-word",fontSize:"1.3em"}}>
-                                                        <p><input value={listItem.newurl} style={{flex:"5",padding:"0.5em",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p>
-                                                        <div className="copyicon" style={{display:"flex",flex:"1",alignItems:"center",justifyContent:"center"}}>
-                                                            <CopyToClipboard text={`${window.location.origin}/${listItem.newurl}`}>
-                                                                <Icon name="clone outline"></Icon>
-                                                            </CopyToClipboard>
-                                                        </div>
-                                                        <div className="copyicon" style={{display:"flex",flex:"1",alignItems:"center",justifyContent:"center"}}>
-                                                            <a href={`/${listItem.newurl}`} target="_blank"><Icon name="external square alternate"/></a>
+                                                    <div className="listpart2" style={{display:"flex",flex:"2",justifyContent:"start",wordWrap: "break-word",fontSize:"1.3em"}}>
+                                                        <p><input value={listItem.newurl} style={{display:"flex",padding:"0.5em",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p>
+                                                        <div style={{display:"flex"}}>
+                                                            <div className="copyicon" style={{display:"flex",flex:"1",alignItems:"center",justifyContent:"center"}}>
+                                                                <CopyToClipboard text={`${window.location.origin}/${listItem.newurl}`}>
+                                                                    <Icon name="clone outline"></Icon>
+                                                                </CopyToClipboard>
+                                                            </div>
+                                                            <div className="copyicon" style={{display:"flex",flex:"1",alignItems:"center",justifyContent:"center"}}>
+                                                                <a href={`/${listItem.newurl}`} target="_blank"><Icon name="external square alternate"/></a>
+                                                            </div>
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
-                                                <div style={{display:"flex",wordWrap: "break-word",marginTop: "1em"}}>
+                                                <div className="listpart2" style={{display:"flex",wordWrap: "break-word",marginTop: "1em"}}>
                                                     <div style={{display:"flex",alignItems:"center",fontWeight:"bold",fontSize:"1.3em"}}><p style={{display:"flex",alignItems:"center"}}>Original URL</p></div>
-                                                    <div style={{display:"flex",flex:"2",justifyContent:"center",wordWrap: "break-word",fontSize:"1.3em"}}><p style={{wordWrap: "break-word"}}><input value={listItem.originalurl} style={{padding:"1rem",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p></div>
+                                                    <div className="listpart2" style={{display:"flex",flex:"2",justifyContent:"center",wordWrap: "break-word",fontSize:"1.3em"}}><p style={{wordWrap: "break-word"}}><input value={listItem.originalurl} style={{display:"flex",padding:"0.5em",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p></div>
                                                 </div>
                                                 <div style={{display:"flex",flexDirection:"row",alignItems:"end",justifyContent:"flex-end",padding:"1em"}}><Link to={`/v1/${listItem.newurl}/stats`}><p style={{textDecoration:"underline",color:"blue",fontWeight:"bold"}}>Show statistics<Icon name="external alternate" /></p></Link></div>
                                             </div> 
@@ -165,7 +167,7 @@ const ListUrls = ({toggleSidebar}) => {
                                     )
                                 })}   
                             </div>
-                            <div style={{margin:"3em"}}>
+                            <div style={{margin:"3em",display: "flex",justifyContent:"center"}}>
                                 <Pagination defaultActivePage={activePage} totalPages={Math.ceil(searchCount/10)} onPageChange={handlePaginationChange}/>
                             </div> 
                         </div>
@@ -182,8 +184,9 @@ const ListUrls = ({toggleSidebar}) => {
                                 results={randomData}
                                 resultRenderer={resultRenderer}
                                 onSearchChange={handleSearchChange}
-                                style={{marginLeft:"auto",marginRight:"auto"}}
+                                style={{marginLeft:"auto",marginRight:"auto",marginBottom:"2em"}}
                                 defaultValue=""
+                                fluid={true}
                             />
                         </div>
                     </div>

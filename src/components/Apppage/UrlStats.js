@@ -92,7 +92,7 @@ const UrlStats = (props) => {
     
     return (
         <div style={{padding:"2em"}}>
-            <div className='header' style={{display:"flex"}}>
+            <div className='header' style={{display:"flex",justifyContent:"space-between"}}>
                 <Icon id="displayOnMobile" name="bars" size="small" onClick={props.toggleSidebar}/>
                 <h1 className='title' style={{display:"flex",marginLeft:"auto",marginRight:"auto"}}>URL Usage Statistics  </h1>
                 <div className='links'>
