@@ -29,12 +29,10 @@ const Banner = () => {
                             http://
                         </div>
                         <input className="urltextbox" type="text" placeholder="Paste URL..." ref={urltext}/>
-                        
-                         
-                        <Link id="defaultlink" className="urlbutton" to={returnLink}>
-                            Get URL
-                        </Link>
                     </div>
+                    <Link id="defaultlink" className="urlbutton" to={returnLink}>
+                            <button>Get URL</button>
+                    </Link>
                 </div>
             </div>      
         </section>

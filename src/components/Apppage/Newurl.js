@@ -54,29 +54,6 @@ const Newurl = ({query, toggleSidebar}) => {
             console.log("Hereeeee");
         },2000);
 
-        //console.log(refurl.current.props.value);
-        /*axios.get("http://localhost:5000/v1/newlink",{
-            headers: { 
-                'Access-Control-Allow-Origin' : '*',
-                'Access-Control-Allow-Headers': '*'
-            },
-            params: {
-                q: refurl.current.value
-            }
-        })
-            .then((res) => {
-                console.log(res.data);
-                shorturlData = res.data;
-                console.log('shorturldata:',shorturlData);
-                setTimeout(()=>{
-                    setUrldata(true);
-                    setData(res.data);
-                },2000);
-            })
-            .catch((err) => {
-                console.log(err);
-            })*/
-
     }
 
     return (

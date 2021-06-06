@@ -132,7 +132,6 @@ header.sticky ul li a {
 
 .banner {
   position: relative;
-  display: flexbox;
   width: 100%;
   height: 100vh;
   z-index: 1;
@@ -159,47 +158,62 @@ header.sticky ul li a {
 #urlsearch {
   display: flex;
   position: absolute;
+  flex-wrap: wrap;
   top: 30vh;
   left: 15%;
+  right: auto;
   width: 70%;
   min-height: 45vh;
+  margin-left: auto;
+  margin-right: auto;
   justify-content: center;
   align-items: center;
   background: rgba(135, 218, 207, 0.65);
   box-shadow: -10px 10px 50px #666;
 }
 
-#urlsearch.input {
-  display: flex;
-  top: 20%;
-  margin-left: auto;
-  margin-right: auto;
-  justify-content: center;
-  align-items: center;
+.c1text {
+  order: 1;
 }
 
-.urlbutton {
-  padding: 15px 30px;
-  font-weight: bold;
-  min-width: 200px;
-  height: 60px;
-  font-size: 1em;
-  color: #fff;
-  background-color: #000;
+.c1image {
+  order: 2;
+}
+
+.c2text {
+  order: 2;
+}
+
+.c2image {
+  order: 1;
+}
+
+#urlsearch .box {
+  display: flex;
+  flex-direction: column;
+}
+
+#urlsearch .box a {
+  text-decoration: none;
+}
+
+#urlsearch .box .urltextbox {
+  width: auto;
+}
+
+#urlsearch .box button {
   border: none;
+  margin-top: 1em;
+  background-color: #333;
+  padding: 1rem 3rem;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2em;
+  border-radius: 10px;
 }
 
-.urltextbox {
-  width: 70%;
-  height: 60px;
-  justify-self: center;
-}
-
-.box {
-  display: flex;
-  text-align: center;
-  justify-content: center;
-  align-items: center;
+#homedropdown {
+  display: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -293,6 +307,14 @@ header.sticky ul li a {
 }
 
 @media (max-width: 1050px) {
+  .navlinks {
+    display: none;
+  }
+  #defaultlink {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+  }
   #appsidebar {
     display: none;
   }
@@ -322,9 +344,45 @@ header.sticky ul li a {
   #listhead {
     width: 100%;
   }
+  #urlsearch {
+    width: 90%;
+    left: 5%;
+  }
+  #urlsearch .box {
+    display: flex;
+    flex-direction: column;
+  }
+  #urlsearch .box a {
+    text-decoration: none;
+  }
+  #urlsearch .box .urltextbox {
+    width: 80%;
+  }
+  #urlsearch .box button {
+    border: none;
+    margin-top: 1em;
+    background-color: #333;
+    padding: 1rem 3rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    border-radius: 10px;
+  }
+  .c2text {
+    order: 1;
+  }
+  .c2image {
+    order: 2;
+  }
+  #homedropdown {
+    display: block;
+  }
 }
 
 @media (max-width: 768px) {
+  .navlinks {
+    display: none;
+  }
   .listpart1 {
     flex-direction: column;
   }
@@ -345,5 +403,41 @@ header.sticky ul li a {
   }
   #listhead {
     width: 100%;
+  }
+  #urlsearch {
+    width: 95vw;
+  }
+  #urlsearch .box {
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
+  }
+  #urlsearch .box a {
+    text-decoration: none;
+  }
+  #urlsearch .box .urltextbox {
+    width: 80%;
+  }
+  #urlsearch .box button {
+    border: none;
+    margin-top: 1em;
+    background-color: #333;
+    padding: 1rem 3rem;
+    color: #fff;
+    font-weight: bold;
+    font-size: 2em;
+    border-radius: 10px;
+  }
+  .c2text {
+    order: 1;
+  }
+  .c2image {
+    order: 2;
+  }
+  #homedropdown {
+    display: block;
+  }
+  #homedropdown button {
+    display: none;
   }
 }
