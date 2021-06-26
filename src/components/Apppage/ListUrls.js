@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import queryString from 'query-string';
-import { Header, Input, Icon, Image, Menu, Segment, Sidebar, Button,Pagination, Message, Search } from 'semantic-ui-react';
+import { Header, Input, Icon, Image, Menu, Segment, Label, Sidebar, Button,Pagination, Message, Search, Dropdown } from 'semantic-ui-react';
 import axios from 'axios';
 import ShowGeneratedURL from './ShowGeneratedURL';
 import lottie from 'lottie-web';
@@ -37,6 +37,11 @@ const ListUrls = ({toggleSidebar}) => {
 
     useEffect(()=>{
         
+        getDataAsList();
+        //setRequrl(query);
+    },[]);
+
+    const getDataAsList = () => {
         axios.get("https://agile-ravine-23097.herokuapp.com/v1/list",{
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
@@ -56,8 +61,7 @@ const ListUrls = ({toggleSidebar}) => {
             .catch((err) => {
                 console.log(err);
             })
-        //setRequrl(query);
-    },[]);
+    }
 
     const func = () => {
         console.log("whaaat");
@@ -122,6 +126,29 @@ const ListUrls = ({toggleSidebar}) => {
         console.log("shubh",e);
     }
 
+    const handleItemClick = (newurl,id) =>{
+        console.log("heyyy");
+        axios.get(`https://agile-ravine-23097.herokuapp.com/v1/delete/${id}`,{
+            headers: { 
+                'Access-Control-Allow-Origin' : '*',
+                'Access-Control-Allow-Headers': '*'
+            }
+        })
+            .then((res) => {
+                console.log(res.data);
+                getDataAsList();
+            })
+            .catch((err) => {
+                console.log(err);
+            })
+    }
+
+    const options = [
+        { key: 'edit', icon: 'edit', text: 'Edit Post', value: 'edit' },
+        { key: 'delete', icon: 'delete', text: 'Remove Post', value: 'delete' },
+        { key: 'hide', icon: 'hide', text: 'Hide Post', value: 'hide' },
+      ]
+      
     return (
         <>
             <div style={{position:"absolute",width:"100%",height:"100vh",padding:"0",backgroundColor:"#f9f9f9"}}>
@@ -153,10 +180,18 @@ const ListUrls = ({toggleSidebar}) => {
                                                             <div className="copyicon" style={{display:"flex",flex:"1",alignItems:"center",justifyContent:"center"}}>
                                                                 <a href={`/${listItem.newurl}`} target="_blank"><Icon name="external square alternate"/></a>
                                                             </div>
+                                                
+                                                                <Dropdown item icon='ellipsis vertical'>
+                                                                <Dropdown.Menu>
+                                                                    <Dropdown.Item onClick={() => handleItemClick(listItem.newurl,listItem._id)}><Icon name="trash"/>Delete Item</Dropdown.Item>
+                                                                    <Dropdown.Item><Link to={`/v1/${listItem.newurl}/stats`}><p><Icon name="line graph"/>Open statistics</p></Link></Dropdown.Item>
+                                                                </Dropdown.Menu>
+                                                                </Dropdown>
                                                         </div>
                                                     </div>
                                                     
                                                 </div>
+                                                
                                                 <div className="listpart2" style={{display:"flex",wordWrap: "break-word",marginTop: "1em"}}>
                                                     <div style={{display:"flex",alignItems:"center",fontWeight:"bold",fontSize:"1.3em"}}><p style={{display:"flex",alignItems:"center"}}>Original URL</p></div>
                                                     <div className="listpart2" style={{display:"flex",flex:"2",justifyContent:"center",wordWrap: "break-word",fontSize:"1.3em"}}><p style={{wordWrap: "break-word"}}><input value={listItem.originalurl} style={{display:"flex",padding:"0.5em",border:"none",borderRadius:"5px",backgroundColor:"#eee"}} disabled></input></p></div>
