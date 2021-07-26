@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom';
+
 const Footer = () => {
     return (
         <div className="ui inverted vertical footer segment" style={{marginTop:"5%",paddingTop: "2%",paddingBottom: "2%"}}>
@@ -13,12 +15,12 @@ const Footer = () => {
                     <div className="three wide column">
                     <h4 className="ui inverted header">Services</h4>
                     <div className="ui inverted link list">
-                        <a href="#" className="item">Easy URL</a>
-                        <a href="#" className="item">Analysis</a>
+                        <Link to="/v1/home" className="item">Easy URL</Link>
+                        <Link to="/v1/stats" className="item">Analysis</Link>
                     </div>
                     </div>
                     <div className="seven wide column">
-                    <h4 className="ui inverted header">Footer Header</h4>
+                    <h4 className="ui inverted header">URLEasy</h4>
                     <p>&copy;{new Date().getFullYear()}</p>
                     </div>
                 </div>

@@ -406,3 +406,11 @@ header.sticky {
 		}
 	}
 }
+
+.mobilemenu{
+	display: none;
+	@media (max-width:1050px){
+		display: block;
+	}
+
+}

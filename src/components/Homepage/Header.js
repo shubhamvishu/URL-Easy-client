@@ -3,6 +3,7 @@ import lottie from 'lottie-web';
 import linkLogo from '../../animation/link-animation.json';
 import "../../css/App.css";
 import { Button, Dropdown } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
@@ -41,22 +42,25 @@ const Header = () => {
                 <ul className="navlinks">
                     <li><a href="#">Home</a></li>
                     <li><a href="#">About</a></li>
-                    <li><a href="">Products</a></li>
-                    <li onclick="openlogin()"><a href="#">LOGIN</a></li>
+                    <li><Link to="/v1/newlink">Shortener</Link></li>
+                    {/* <li onclick="openlogin()"><a href="#">LOGIN</a></li>
                     <div className="ui divided"></div>
-                    <li onclick="opensignup()"><a href="#">SIGN UP</a></li>
+                    <li onclick="opensignup()"><a href="#">SIGN UP</a></li> */}
                 </ul>
-                <div class="ui compact menu" style={{backgroundColor:"transparent"}}>
-                    <div class="ui simple dropdown item">
-                        Menu
-                        <i class="dropdown icon"></i>
-                        <div class="menu">
-                        <div class="item"><a href="#">Home</a></div>
-                        <div class="item"><a href="#">About</a></div>
-                        <div class="item"><a href="">Products</a></div>
+                <div className="mobilemenu">
+                    <div className="mobilemenu ui compact menu" style={{backgroundColor:"transparent"}}>
+                        <div className="ui simple dropdown item">
+                            Menu
+                            <i className="dropdown icon"></i>
+                            <div className="menu">
+                            <div className="item"><a href="#">Home</a></div>
+                            <div className="item"><a href="#">About</a></div>
+                            <div className="item"><Link to="/v1/newlink">Shortener</Link></div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                
             </header>
         </div>
     )

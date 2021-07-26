@@ -441,3 +441,13 @@ header.sticky ul li a {
     display: none;
   }
 }
+
+.mobilemenu {
+  display: none;
+}
+
+@media (max-width: 1050px) {
+  .mobilemenu {
+    display: block;
+  }
+}

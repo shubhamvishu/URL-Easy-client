@@ -2,7 +2,6 @@ import React, { useEffect,useState } from 'react'
 import queryString from 'query-string'
 import Newurl from './Newurl'
 import DefaultAppPage from './DefaultAppPage'
-import Redirectpage from '../Redirectpage'
 import ListUrls from './ListUrls'
 import UrlStats from './UrlStats'
 import StatsPage from './StatsPage'
@@ -13,7 +12,7 @@ const Apppage = (props) => {
 
     const [visible,setVisible] = useState(true);
     const [query, setQuery] = useState('');
-    const parsed = queryString.parse(props.location.search);
+    const parsed = queryString.parse(props?.location?.search);
     const [sidebarOption,setSidebarOption] = useState(0);
     const [Msidebar,setMSidebar] = useState(false);
     useEffect(() =>{

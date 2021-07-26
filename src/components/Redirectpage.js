@@ -4,8 +4,11 @@ import axios from 'axios';
 import lottie from 'lottie-web';
 import redirectAnimation from '../animation/paperplane.json';
 import {Header} from 'semantic-ui-react';
+import Apppage from './Apppage/Apppage';
 
 const Redirectpage = (props) => {
+
+    const [errMsg, setErrMsg] = useState('');
 
     useEffect(()=>{
         lottie.loadAnimation({
@@ -23,7 +26,8 @@ const Redirectpage = (props) => {
             headers: { 
                 'Access-Control-Allow-Origin' : '*',
                 'Access-Control-Allow-Headers': '*'
-            }
+            },
+            timeout: 5000
         })
             .then((res) => {
                 console.log(res.data);
@@ -32,15 +36,24 @@ const Redirectpage = (props) => {
                 },5000);
             })
             .catch((err) => {
+                setErrMsg("No such URL Found. Please check your URL again");
+                setTimeout(()=>{
+                    window.location.replace("/v1/home");
+                },2000);
                 console.log(err);
+            })
+            .finally(()=>{
+                console.log("END");
             })
         //window.location.replace("http://stackoverflow.com");
     },[])
     return (
         <div>
+           
             <Header as="h1">REDIRECTING</Header>
-            <div id="redirectanimation" style={{width:"30%",height:"30%",justifyContent:"center",marginLeft:"auto",marginRight:"auto"}}>
-            </div>
+            <div id="redirectanimation" style={{width:"30%",height:"30%",justifyContent:"center",marginLeft:"auto",marginRight:"auto"}}></div>
+            <h3>{errMsg}</h3>
+        
         </div>
     )
 }
