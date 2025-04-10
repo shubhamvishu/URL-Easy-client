@@ -44,7 +44,7 @@
     ]
   },
   "devDependencies": {
-    "axios": "^1.7.4",
+    "axios": "^1.8.2",
     "react-chartjs-2": "^3.0.3"
   }
 }
